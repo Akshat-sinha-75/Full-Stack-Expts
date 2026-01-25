@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f3f3f3;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            width: 420px;
+            padding: 35px 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #444;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 150px;
+            padding: 12px;
+            margin-top: 15px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #000;
+            transform: scale(1.06);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Registration</h2>
+        <input type="text" id="name" placeholder="Student Name">
+        <input type="text" id="roll" placeholder="Roll Number">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="course" placeholder="Course">
+
+        <button onclick="submitForm()">Register</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            let name = document.getElementById("name").value;
+            let roll = document.getElementById("roll").value;
+            let email = document.getElementById("email").value;
+            let course = document.getElementById("course").value;
+
+            if(!name || !roll || !email || !course){
+                alert("Kindly fill the comeplete form first ");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+        }
+    </script>
+
+</body>
+</html>

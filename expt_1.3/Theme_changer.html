@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f1f1f1;
+            color: #222;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #222;
+            color: white;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.07);
+        }
+
+       
+        body.dark {
+            background: #111;
+            color: #eee;
+        }
+
+        body.dark button {
+            background: #eee;
+            color: #111;
+        }
+
+        body.dark button:hover {
+            transform: scale(1.07);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">Light Mode Active 🌞</h1>
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+
+            const heading = document.getElementById("heading");
+            if (document.body.classList.contains("dark")) {
+                heading.textContent = "Dark Mode Active 🌚";
+            } else {
+                heading.textContent = "Light Mode Active 🌞";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #eef5ec;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            width: 450px;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transition: all 0.3s ease-in-out;
+            animation: rise 0.8s ease;
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .balance {
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #333;
+            box-shadow: 0 0 6px rgba(0,0,0,0.22);
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 17px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .deposit {
+            background: #0a7f21;
+        }
+
+        .deposit:hover {
+            background: #08691b;
+            transform: scale(1.06);
+        }
+
+        .withdraw {
+            background: #e00000;
+        }
+
+        .withdraw:hover {
+            background: #b80000;
+            transform: scale(1.06);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <h1>Bank Account</h1>
+        <div class="balance">Balance: ₹<span id="bal">1000</span></div>
+
+        <input type="number" id="amount" placeholder="Enter Amount">
+
+        <div class="btns">
+            <button class="btn deposit" onclick="deposit()">Deposit</button>
+            <button class="btn withdraw" onclick="withdraw()">Withdraw</button>
+        </div>
+    </div>
+
+
+    <script>
+        let balance = 1000;
+
+        function deposit() {
+            let amt = Number(document.getElementById("amount").value);
+            if (amt <= 0) return alert("please enter a valid amount ");
+
+            balance += amt;
+            document.getElementById("bal").innerText = balance;
+        }
+
+        function withdraw() {
+            let amt = Number(document.getElementById("amount").value);
+            if (amt <= 0) return alert("Please enter an amount");
+            if (amt > balance) return alert("Bhai tu raja hai? Itna paisa nahi hai! 💀");
+
+            balance -= amt;
+            document.getElementById("bal").innerText = balance;
+        }
+    </script>
+
+</body>
+</html>
