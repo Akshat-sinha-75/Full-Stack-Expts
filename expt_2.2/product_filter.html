@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dynamic Product Filter</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0d1117;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .filter-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        animation: fadeIn 0.7s ease;
+    }
+
+    select {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background: #161b22;
+        color: #fff;
+        border: 1px solid #30363d;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .product {
+        background: #161b22;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        border: 1px solid #30363d;
+    }
+
+    .product:hover {
+        transform: translateY(-5px);
+    }
+
+    .fade {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Dynamic Product Filter</h1>
+
+<div class="filter-box">
+    <select id="filter">
+        <option value="all">Sort by Category</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="home">Home</option>
+    </select>
+</div>
+
+<div class="products" id="productContainer">
+   
+</div>
+
+<script>
+    const products = [
+        { name: "Smartphone", category: "electronics" },
+        { name: "Laptop", category: "electronics" },
+        { name: "T-Shirt", category: "fashion" },
+        { name: "Sneakers", category: "fashion" },
+        { name: "Table Lamp", category: "home" },
+        { name: "Wall Clock", category: "home" }
+    ];
+
+    const container = document.getElementById("productContainer");
+    const filter = document.getElementById("filter");
+
+    function render(productsToRender) {
+        container.innerHTML = "";
+        productsToRender.forEach(p => {
+            const div = document.createElement("div");
+            div.className = "product fade";
+            div.innerHTML = `<h3>${p.name}</h3><p>${p.category}</p>`;
+            container.appendChild(div);
+
+            setTimeout(() => {
+                div.classList.remove("fade");
+            }, 10);
+        });
+    }
+
+    filter.addEventListener("change", () => {
+        const value = filter.value;
+
+        if (value === "all") render(products);
+        else render(products.filter(p => p.category === value));
+    });
+
+    
+    render(products);
+</script>
+
+</body>
+</html>
