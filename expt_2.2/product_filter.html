@@ -26,6 +26,7 @@
         justify-content: center;
         margin-bottom: 20px;
         animation: fadeIn 0.7s ease;
+       
     }
 
     select {
@@ -78,7 +79,7 @@
 
 <div class="filter-box">
     <select id="filter">
-        <option value="all">Sort by Category</option>
+        <option value="all">All Products</option>
         <option value="electronics">Electronics</option>
         <option value="fashion">Fashion</option>
         <option value="home">Home</option>
@@ -104,15 +105,15 @@
 
     function render(productsToRender) {
         container.innerHTML = "";
-        productsToRender.forEach(p => {
+        productsToRender.forEach(product => {
             const div = document.createElement("div");
             div.className = "product fade";
-            div.innerHTML = `<h3>${p.name}</h3><p>${p.category}</p>`;
+            div.innerHTML = `<h3>${product.name}</h3><p>${product.category}</p>`;
             container.appendChild(div);
 
             setTimeout(() => {
                 div.classList.remove("fade");
-            }, 10);
+            }, 20);
         });
     }
 
@@ -120,7 +121,7 @@
         const value = filter.value;
 
         if (value === "all") render(products);
-        else render(products.filter(p => p.category === value));
+        else render(products.filter(product => product.category === value));
     });
 
     
