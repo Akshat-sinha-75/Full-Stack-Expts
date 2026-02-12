@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #141414;
+}
+
+.container {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 40px;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+/* Search */
+.search {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+/* Add form */
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 12px 20px;
+  background: #1a73e8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form button:hover {
+  background: #0f5fcc;
+}
+
+/* Book List */
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgb(37, 37, 37);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.08);
+  align-items: center;
+}
+
+.book h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.book p {
+  margin: 0;
+  color: #555;
+}
+
+/* Remove Button */
+.remove {
+  background: #d9534f;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove:hover {
+  background: #c9302c;
+}
+
+/* Empty message */
+.empty {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
